@@ -2,6 +2,7 @@
 
 /* [- BASIC PARAMETERS -] */
 Text_Name = "♡Alicja♡";
+Text_Name_2 = "Kochamy Cię!";
 Text_Size = 10; // [4:1:40]
 Letter_Spacing = 1; // [0.5:0.05:1.25] 
 
@@ -31,9 +32,15 @@ Fonts = [
 ];
 
 module text_name() {
-    translate([0, 0, Base_Thickness])
+    translate([0, 2.5, Base_Thickness])  // podnieś tekst wyżej
         linear_extrude(height = Text_Thickness)
             text(Text_Name, size = Text_Size, font = Font_Choice, spacing = Letter_Spacing, halign="center", valign="center");
+}
+
+module text_name_2() {
+    translate([0, -Text_Size, Base_Thickness])  // niżej od pierwszej linii
+        linear_extrude(height = Text_Thickness)
+            text(Text_Name_2, size = Text_Size, font = Font_Choice, spacing = Letter_Spacing, halign="center", valign="center");
 }
 
 module base() {
@@ -60,3 +67,6 @@ color(Base_Color)
 
 color(Text_Color)
     text_name();
+
+color(Text_Color)
+    text_name_2();
