@@ -1,9 +1,9 @@
 // Robi
 
 /* [- BASIC PARAMETERS -] */
-Text_Name = "♡Alicja♡";
-Text_Name_2 = "Kochamy Cię!";
-Text_Size = 10; // [4:1:40]
+Text_Name = "Good";
+Text_Name_2 = "Vibes";
+Text_Size = 8; // [4:1:40]
 Letter_Spacing = 1; // [0.5:0.05:1.25] 
 
 /* [- FONT SELECTION -] */
@@ -18,9 +18,9 @@ Font_Choice = aux1 ? aux2 : aux3;
 /* [- ADVANCED PARAMETERS -] */ 
 Text_Thickness = 1; // [0.5:0.5:10]
 Base_Thickness = 2; // [0.5:0.5:10]
-Base_Size = 1.5; // [0:0.5:5]
-Ring_Horizontal = -30; // [-50:0.5:50]
-Ring_Vertical = 0; // [-10:0.2:10]
+Base_Size = 2.5; // [0:0.5:5]
+Ring_Horizontal = -17; // [-50:0.5:50]
+Ring_Vertical = -5; // [-10:0.2:10]
 Text_Color = "Gold"; // ["red","green","blue","yellow","cyan","magenta","orange","pink","purple","brown","white","black","grey","gold","lightblue"]
 Base_Color = "Black"; // ["red","green","blue","yellow","cyan","magenta","orange","pink","purple","brown","white","black","grey","gold","lightblue"]
 
@@ -32,7 +32,7 @@ Fonts = [
 ];
 
 module text_name() {
-    translate([0, 2.5, Base_Thickness])  // podnieś tekst wyżej
+    translate([0, 1.2, Base_Thickness])  // podnieś tekst wyżej
         linear_extrude(height = Text_Thickness)
             text(Text_Name, size = Text_Size, font = Font_Choice, spacing = Letter_Spacing, halign="center", valign="center");
 }
@@ -44,9 +44,18 @@ module text_name_2() {
 }
 
 module base() {
+    union() {
+        translate([0, 1.2, 0])
+            text_shape(Text_Name);
+        translate([0, -Text_Size, 0])
+            text_shape(Text_Name_2);
+    }
+}
+
+module text_shape(content) {
     linear_extrude(height = Base_Thickness)
         offset(delta = Base_Size)
-            text(Text_Name, size = Text_Size, font = Font_Choice, spacing = Letter_Spacing, halign="center", valign="center");
+            text(content, size = Text_Size, font = Font_Choice, spacing = Letter_Spacing, halign="center", valign="center");
 }
 
 module keychain_ring() {
