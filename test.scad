@@ -2,7 +2,7 @@ $fn = 200;
 
 name_text = "Alicja";
 font_size = 10;
-font_name = "a Area Stencil";  // Testuj różne!
+font_name = "a Area Stencil";  // test font
 
 module cut_name() {
     linear_extrude(height = 80, center = true)

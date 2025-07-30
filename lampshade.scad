@@ -9,7 +9,7 @@ top_thickness = 3.5;
 // ==== PARAMETRY TEKSTU ====
 name_text = "Alicja";
 font_size = 10;
-font_name = "Sirin Stencil";  // Upewnij się, że masz ją zainstalowaną
+font_name = "Fashion Stencil";  // Upewnij się, że masz ją zainstalowaną
 text_depth = radius_outer * 2; // wystarczająco, by przeciąć cały cylinder
 
 // ==== MODUŁ: WYCIĘCIE TEKSTU ====
